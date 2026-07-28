@@ -1,0 +1,170 @@
+# Schriftart und Größe
+font-family = "JetBrainsMono NFM SemiBold"
+font-family-bold = "JetBrainsMono NFM Bold"
+font-family-italic = "JetBrainsMono NFM SemiBold Italic"
+font-family-bold-italic = "JetBrainsMono NFM Bold Italic"
+font-size = 20
+
+font-feature = "calt"
+font-feature = "clig"
+font-feature = "liga"
+
+# default is 3 for discrete, 1 for precision
+mouse-scroll-multiplier = precision:1,discrete:3
+#Lower discrete value = less jumpy scrolling per wheel tick.
+
+
+# Colorscheme (Gruvbox Material Hard dark)
+#theme = Chalk 
+theme = Desert
+
+#theme = Gruvbox Material Dark
+
+background = #1d2021
+foreground = #d4be98
+cursor-color = #d4be98
+selection-background = #d4be98
+selection-foreground = #3c3836
+
+# Ansi Farben
+palette = 0=#1d2021
+palette = 1=#ea6962
+palette = 2=#a9b665
+palette = 3=#d8a657
+palette = 4=#7daea3
+palette = 5=#d3869b
+palette = 6=#89b482
+palette = 7=#d4be98
+palette = 8=#eddeb5
+palette = 9=#ea6962
+palette = 10=#a9b665
+palette = 11=#d8a657
+palette = 12=#7daea3
+palette = 13=#d3869b
+palette = 14=#89b482
+palette = 15=#d4be98
+
+# Window properties
+window-height = 35
+window-width = 130
+
+window-padding-x = 5
+window-padding-y = 5
+window-padding-balance = true
+background-opacity = 0.82
+background-blur = 9
+window-decoration = auto
+#macos-titlebar-style = hidden
+
+window-save-state = always
+macos-titlebar-style=transparent
+window-colorspace = "display-p3"
+# foreground = d4be98
+
+# cursor settings
+shell-integration = none
+cursor-style = block
+cursor-style-blink = true
+
+# Eventhough not the macos default quit after last window was closed
+quit-after-last-window-closed = true
+
+# Fix CMD+left/right home/end mapping with tmux and CTRL+A prefix
+#
+keybind=cmd+left=esc:OH
+keybind=cmd+right=esc:OF
+
+# Clipboard behaviour
+copy-on-select=clipboard
+
+# Env on startup
+#command = env ENABLE_TMUX_STARTUP=true $SHELL
+
+## Cursor trail
+custom-shader="./shaders/cursor_blaze_tapered_modified.glsl"
+#custom-shader="./shaders/retro-terminal.glsl"
+# custom-shader="./shaders/glitchy.glsl"
+#custom-shader="./shaders/water.glsl"
+#custom-shader="./shaders/bettercrt.glsl"
+custom-shader="./shaders/bloom.glsl"
+#custom-shader="./shaders/matrix-hallway.glsl"
+#custom-shader="./shaders/glow-rgbsplit-twitchy.glsl"
+#custom-shader="./shaders/drunkard.glsl"
+## Shaders
+# custom-shader="/Users/jakob/Development/github/hackr-sh/ghostty-shaders/starfield-colors.glsl"
+# custom-shader="/Users/jakob/Development/github/hackr-sh/ghostty-shaders/starfield.glsl"
+# custom-shader="/Users/jakob/Development/github/hackr-sh/ghostty-shaders/bettercrt.glsl"
+# custom-shader="/Users/jakob/Development/github/hackr-sh/ghostty-shaders/dither.glsl"
+# custom-shader="/Users/jakob/Development/github/hackr-sh/ghostty-shaders/galaxy.glsl"
+# custom-shader="/Users/jakob/Development/github/hackr-sh/ghostty-shaders/in-game-crt.glsl"
+# custom-shader="/Users/jakob/Development/github/hackr-sh/ghostty-shaders/negative.glsl"
+# custom-shader="/Users/jakob/Development/github/hackr-sh/ghostty-shaders/drunkard.glsl"
+# custom-shader="/Users/jakob/Development/github/hackr-sh/ghostty-shaders/fireworks.glsl"
+# custom-shader="/Users/jakob/Development/github/hackr-sh/ghostty-shaders/water.glsl"
+# custom-shader="/Users/jakob/Development/github/hackr-sh/ghostty-shaders/just-snow.glsl"
+# custom-shader="/Users/jakob/Development/github/hackr-sh/ghostty-shaders/cubes.glsl"
+# custom-shader="/Users/jakob/Development/github/hackr-sh/ghostty-shaders/animated-gradient-shader.glsl"
+# custom-shader="/Users/jakob/Development/github/hackr-sh/ghostty-shaders/tft.glsl"
+# custom-shader="/Users/jakob/Development/github/hackr-sh/ghostty-shaders/mnoise.glsl"
+# custom-shader="/Users/jakob/Development/github/hackr-sh/ghostty-shaders/crt.glsl"
+# custom-shader="/Users/jakob/Development/github/hackr-sh/ghostty-shaders/retro-terminal.glsl"
+# custom-shader="/Users/jakob/Development/github/hackr-sh/ghostty-shaders/bloom.glsl"
+# custom-shader="/Users/jakob/Development/github/hackr-sh/ghostty-shaders/fireworks-rockets.glsl"
+# custom-shader="/Users/jakob/Development/github/hackr-sh/ghostty-shaders/gears-and-belts.glsl"
+# custom-shader="/Users/jakob/Development/github/hackr-sh/ghostty-shaders/smoke-and-ghost.glsl"
+# custom-shader="/Users/jakob/Development/github/hackr-sh/ghostty-shaders/spotlight.glsl"
+# custom-shader="/Users/jakob/Development/github/hackr-sh/ghostty-shaders/underwater.glsl"
+# custom-shader="/Users/jakob/Development/github/hackr-sh/ghostty-shaders/cineShader-Lava.glsl"
+# custom-shader="/Users/jakob/Development/github/hackr-sh/ghostty-shaders/sparks-from-fire.glsl"
+# custom-shader="/Users/jakob/Development/github/hackr-sh/ghostty-shaders/gradient-background.glsl"
+# custom-shader="/Users/jakob/Development/github/hackr-sh/ghostty-shaders/inside-the-matrix.glsl"
+# custom-shader="/Users/jakob/Development/github/hackr-sh/ghostty-shaders/sin-interference.glsl"
+# custom-shader="/Users/jakob/Development/github/12jihan/ghostty_shaders/flicker.glsl"
+# custom-shader="/Users/jakob/Development/github/12jihan/ghostty_shaders/crt.glsl"
+# custom-shader="/Users/jakob/Development/github/12jihan/ghostty_shaders/glow.glsl"
+# custom-shader="/Users/jakob/Development/github/12jihan/ghostty_shaders/crt_glitch.glsl"
+# custom-shader="/Users/jakob/Development/github/erniee/gshaders/matrix-hallway.glsl"
+# custom-shader="/Users/jakob/Development/github/erniee/gshaders/starfield-colors.glsl"
+# custom-shader="/Users/jakob/Development/github/erniee/gshaders/starfield.glsl"
+# custom-shader="/Users/jakob/Development/github/erniee/gshaders/bettercrt.glsl"
+# custom-shader="/Users/jakob/Development/github/erniee/gshaders/dither.glsl"
+# custom-shader="/Users/jakob/Development/github/erniee/gshaders/glow-rgbsplit-twitchy.glsl"
+# custom-shader="/Users/jakob/Development/github/erniee/gshaders/negative.glsl"
+# custom-shader="/Users/jakob/Development/github/erniee/gshaders/drunkard.glsl"
+# custom-shader="/Users/jakob/Development/github/erniee/gshaders/fireworks.glsl"
+# custom-shader="/Users/jakob/Development/github/erniee/gshaders/water.glsl"
+# custom-shader="/Users/jakob/Development/github/erniee/gshaders/just-snow.glsl"
+# custom-shader="/Users/jakob/Development/github/erniee/gshaders/glitchy.glsl"
+# custom-shader="/Users/jakob/Development/github/erniee/gshaders/tft.glsl"
+# custom-shader="/Users/jakob/Development/github/erniee/gshaders/crt.glsl"
+# custom-shader="/Users/jakob/Development/github/erniee/gshaders/retro-terminal.glsl"
+# custom-shader="/Users/jakob/Development/github/erniee/gshaders/matrix.glsl"
+# custom-shader="/Users/jakob/Development/github/erniee/gshaders/fireworks-rockets.glsl"
+# custom-shader="/Users/jakob/Development/github/erniee/gshaders/matrix_rain.glsl"
+# custom-shader="/Users/jakob/Development/github/erniee/gshaders/gears-and-belts.glsl"
+# custom-shader="/Users/jakob/Development/github/erniee/gshaders/smoke-and-ghost.glsl"
+# custom-shader="/Users/jakob/Development/github/erniee/gshaders/sparks-from-fire.glsl"
+# custom-shader="/Users/jakob/Development/github/erniee/gshaders/gradient-background.glsl"
+# custom-shader="/Users/jakob/Development/github/erniee/gshaders/inside-the-matrix.glsl"
+# custom-shader="/Users/jakob/Development/github/fearlessgeekmedia/Fearless-Geek-Shaders-for-Ghostty/computer-glitchy-4.glsl"
+# custom-shader="/Users/jakob/Development/github/fearlessgeekmedia/Fearless-Geek-Shaders-for-Ghostty/static.glsl"
+# custom-shader="/Users/jakob/Development/github/fearlessgeekmedia/Fearless-Geek-Shaders-for-Ghostty/scanbars.glsl"
+# custom-shader="/Users/jakob/Development/github/fearlessgeekmedia/Fearless-Geek-Shaders-for-Ghostty/computer-glitchy-2.glsl"
+# custom-shader="/Users/jakob/Development/github/fearlessgeekmedia/Fearless-Geek-Shaders-for-Ghostty/computer-glitchy-3.glsl"
+# custom-shader="/Users/jakob/Development/github/fearlessgeekmedia/Fearless-Geek-Shaders-for-Ghostty/computer-glitchy.glsl"
+# custom-shader="/Users/jakob/Development/github/fearlessgeekmedia/Fearless-Geek-Shaders-for-Ghostty/old-film.glsl"
+# custom-shader="/Users/jakob/Development/github/alex-sherwin/my-ghostty-shaders/matrix-hallway.glsl"
+# custom-shader="/Users/jakob/Development/github/alex-sherwin/my-ghostty-shaders/sparks-from-fire_shadertoy.glsl"
+# custom-shader="/Users/jakob/Development/github/alex-sherwin/my-ghostty-shaders/starfield.glsl"
+# custom-shader="/Users/jakob/Development/github/alex-sherwin/my-ghostty-shaders/dither.glsl"
+# custom-shader="/Users/jakob/Development/github/alex-sherwin/my-ghostty-shaders/glow-rgbsplit-twitchy.glsl"
+# custom-shader="/Users/jakob/Development/github/alex-sherwin/my-ghostty-shaders/sparks-from-fire_almost_upside_down.glsl"
+# custom-shader="/Users/jakob/Development/github/alex-sherwin/my-ghostty-shaders/matrix-hallway_working_original.glsl"
+# custom-shader="/Users/jakob/Development/github/alex-sherwin/my-ghostty-shaders/waves.glsl"
+# custom-shader="/Users/jakob/Development/github/alex-sherwin/my-ghostty-shaders/underwater.glsl"
+# custom-shader="/Users/jakob/Development/github/alex-sherwin/my-ghostty-shaders/base.glsl"
+# custom-shader="/Users/jakob/Development/github/alex-sherwin/my-ghostty-shaders/sparks-from-fire.glsl"
+# custom-shader="/Users/jakob/Development/github/alex-sherwin/my-ghostty-shaders/inside-the-matrix_orig.glsl"
+# custom-shader="/Users/jakob/Development/github/alex-sherwin/my-ghostty-shaders/inside-the-matrix.glsl"
+# custom-shader="/Users/jakob/Development/github/luiscarlospando/crt-shader-with-chromatic-aberration-glow-scanlines-dot-matrix/crt-shader-with-chromatic-aberration-glow-scanlines-dot-matrix.glsl"
+keybind = shift+enter=text:\x1b\r

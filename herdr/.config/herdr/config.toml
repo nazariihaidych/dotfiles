@@ -1,0 +1,19 @@
+onboarding = false
+[theme]
+name = "dracula"
+auto_switch = false
+
+[keys]
+prefix = "ctrl+a"
+focus_agent = "prefix+shift+1..9"
+
+[ui]
+hide_tab_bar_when_single_tab = true
+
+agent_panel_sort = "spaces"
+
+[advanced]
+scrollback_limit_bytes = 10485760
+
+[experimental]
+kitty_graphics = true

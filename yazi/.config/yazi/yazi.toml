@@ -1,0 +1,13 @@
+[mgr]
+show_symlink = true
+
+[opener]
+edit = [
+    { run = 'nvim "$@"', desc = "Edit with nvim", block = true, for = "unix" },
+]
+
+[open]
+rules = [
+    { mime = "text/*", use = "edit" },
+    # ... other rules
+]
