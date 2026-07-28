@@ -28,7 +28,7 @@ stow --target="$HOME" --simulate --verbose=1 <package>
 stow --target="$HOME" --restow <package>
 
 # Full bootstrap on a fresh Mac (Homebrew, Brewfile, stow all packages,
-# shell, nvm, rbenv, SDKMAN) — safe to re-run, each step is idempotent
+# shell, macOS defaults, nvm, rbenv, SDKMAN) — safe to re-run, each step is idempotent
 cd install && ./install-all.sh
 ```
 
@@ -50,7 +50,8 @@ which packages get stowed on a fresh install.
 
 **`install/install-all.sh` is a fixed-order pipeline**, not a task runner —
 it sources each `install-*.sh` script in sequence (Homebrew → stow →
-Brewfile → dotfiles/stow → default shell → nvm → rbenv/ruby → SDKMAN).
+Brewfile → dotfiles/stow → default shell → macOS defaults → nvm →
+rbenv/ruby → SDKMAN).
 Each script individually checks `command -v` / file existence before acting,
 so re-running `install-all.sh` after a partial failure is safe. Keep new
 install steps in their own script and idempotent by the same convention
@@ -85,6 +86,16 @@ section for the reasoning): git config lives only at the XDG path
 (`~/.config/git/config`, no `~/.gitconfig`); tmux config lives at
 `~/.config/tmux/tmux.conf` (XDG, requires tmux ≥ 3.1) instead of
 `~/.tmux.conf`. Don't reintroduce the legacy paths.
+
+**`install-macos-defaults.sh` only writes `defaults` keys verified to exist**
+on this machine via `defaults read <domain>` — several settings visible in
+System Settings (mouse tracking/scroll speed, secondary-click mode, menu bar
+background, recent-items count) have no corresponding key in any domain
+after an exhaustive search, likely because they're per-Bluetooth-device or
+stored in a newer non-plist-backed settings store. Those are left
+unscripted and noted in the script's own echo output rather than faked with
+a plausible-looking key that would silently no-op. Apply the same
+verify-before-writing discipline when adding new settings here.
 
 **`Brewfile` is generated from a real machine's installed state**
 (`brew leaves` + `brew list --cask` + `mas list`), not curated from scratch —

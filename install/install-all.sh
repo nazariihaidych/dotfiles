@@ -11,6 +11,7 @@ cd "$SCRIPT_DIR"
 . ./install-brewfile.sh
 . ./install-dotfiles.sh
 . ./install-zsh.sh
+. ./install-macos-defaults.sh
 . ./install-nvm.sh
 . ./install-ruby.sh
 . ./install-sdkman.sh

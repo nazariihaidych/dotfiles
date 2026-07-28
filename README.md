@@ -39,9 +39,10 @@ cd ~/dotfiles/install
 3. `install-brewfile.sh` — `brew bundle` against `../Brewfile` (CLI tools, GUI apps, Mac App Store apps — sign into the App Store first for the `mas` entries to work)
 4. `install-dotfiles.sh` — `stow --restow` every package listed above
 5. `install-zsh.sh` — registers Homebrew's zsh in `/etc/shells` and makes it the login shell
-6. `install-nvm.sh` — installs [nvm](https://github.com/nvm-sh/nvm) + latest Node LTS
-7. `install-ruby.sh` — installs the latest stable Ruby via `rbenv` (already brewed by step 3)
-8. `install-sdkman.sh` — installs [SDKMAN](https://sdkman.io) for Java/Kotlin/Gradle/Maven
+6. `install-macos-defaults.sh` — applies this Mac's actual Dock/Finder/window-tiling/Mission Control/menu bar/appearance settings via `defaults write`
+7. `install-nvm.sh` — installs [nvm](https://github.com/nvm-sh/nvm) + latest Node LTS
+8. `install-ruby.sh` — installs the latest stable Ruby via `rbenv` (already brewed by step 3)
+9. `install-sdkman.sh` — installs [SDKMAN](https://sdkman.io) for Java/Kotlin/Gradle/Maven
 
 Run any script standalone if you only need one piece (e.g. re-stowing after
 editing a config: `./install-dotfiles.sh`).
@@ -52,6 +53,32 @@ has content on the machine you're running this on, move it aside first
 
 **Deliberately excluded:** corporate-managed tools (VPN clients, Cisco,
 GlobalProtect) — install those manually per your IT instructions.
+
+**`install-macos-defaults.sh`** applies Dock/Finder/window-tiling/Mission
+Control/menu bar/appearance settings (autohide, icon size, column view,
+tiling/edge-drag behavior, title bar double-click action, menu bar
+auto-hide, accent color, icon tint, etc.) via `defaults write`. It's part of
+`install-all.sh`, but also runs standalone if you just want to reapply it:
+
+```sh
+./install-macos-defaults.sh
+```
+
+Not captured, deliberately:
+
+- **Pinned Dock apps** — too brittle to script reliably (per-app file bookmarks).
+- **Mouse tracking/scroll/double-click speed, secondary-click mode** — these
+  live in a per-Bluetooth-device profile keyed to the specific mouse's
+  hardware ID, not a generic `defaults` domain. Set by hand in System
+  Settings → Mouse once your mouse is paired.
+- **Menu Bar → "Show menu bar background" and "Recent documents,
+  applications, and servers" count** — no backing `defaults(1)` key exists
+  for either after searching every domain on this Mac; likely stored in a
+  newer, non-plist-backed settings store. Set by hand in System Settings →
+  Menu Bar.
+
+To refresh the script after changing a setting, `defaults read <domain>` the
+changed key and update it by hand.
 
 ## The zsh config
 
