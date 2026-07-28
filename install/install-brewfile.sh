@@ -11,4 +11,4 @@ fi
 
 echo "Installing formulae, casks, and Mac App Store apps from Brewfile..."
 echo "(mas entries require being signed into the App Store — sign in first if this is a fresh Mac)"
-brew bundle --file="$REPO_DIR/Brewfile"
+brew bundle --verbose --file="$REPO_DIR/Brewfile"
