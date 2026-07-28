@@ -74,12 +74,10 @@ cask "iterm2"
 # ---------------------------------------------------------------------------
 cask "basictex"
 cask "bruno"
-cask "container"
 cask "gstreamer-runtime"
 cask "localsend"
 cask "meld"
 cask "textmate"
-cask "wine-stable"
 
 # ---------------------------------------------------------------------------
 # GUI apps — previously installed manually, now brought under Homebrew
@@ -96,9 +94,8 @@ cask "dbeaver-community"
 cask "docker"
 cask "figma"
 cask "google-chrome"
-cask "intellij-idea-ce"
+cask "intellij-idea"
 cask "libreoffice"
-cask "logi-options-plus"
 cask "miro"
 cask "mongodb-compass"
 cask "notion"
