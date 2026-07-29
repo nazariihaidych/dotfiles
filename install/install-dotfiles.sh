@@ -11,11 +11,9 @@ fi
 
 PACKAGES=(zsh git tmux ghostty kitty nvim nvim_LazyVim yazi herdr)
 
-cd "$REPO_DIR"
-
 for pkg in "${PACKAGES[@]}"; do
   echo "Stowing ${pkg}..."
-  stow --restow --target="$HOME" "$pkg"
+  stow --dir="$REPO_DIR" --restow --target="$HOME" "$pkg"
 done
 
 echo "All packages stowed."
