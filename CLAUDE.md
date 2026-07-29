@@ -48,6 +48,16 @@ up (symlinked) in `$HOME`. When adding a new tool's config, create
 `install/install-dotfiles.sh` — that array is the single source of truth for
 which packages get stowed on a fresh install.
 
+**Before tracking a subset of an app's own live state directory as a
+package** (as `claude/` does with `~/.claude/statusline-command.sh` out of
+Claude Code's whole `~/.claude`), check whether stow's default folding
+behavior would swallow the *rest* of that directory into a single symlink
+pointing at this repo — if the directory holds runtime state the app
+writes to continuously (history, sessions, caches), that's actively
+harmful, not just untidy. Stow that one package with `--no-folding` (see
+the conditional in `install-dotfiles.sh`) so the parent directory stays
+real and only the tracked file(s) become symlinks.
+
 **`install/install-all.sh` is a fixed-order pipeline**, not a task runner —
 it sources each `install-*.sh` script in sequence (Homebrew → stow →
 Brewfile → dotfiles/stow → default shell → macOS defaults → nvm →

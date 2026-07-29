@@ -19,9 +19,23 @@ so stowing `nvim/` symlinks `nvim/.config/nvim` to `~/.config/nvim`.
 | `nvim_LazyVim/` | `~/.config/nvim_LazyVim/` | LazyVim-based config, switch via `NVIM_APPNAME` |
 | `yazi/` | `~/.config/yazi/{yazi.toml,theme.toml}` | |
 | `herdr/` | `~/.config/herdr/config.toml` | config only — logs/sockets/sessions are runtime state, not tracked |
+| `claude/` | `~/.claude/statusline-command.sh` | stowed with `--no-folding` — see below |
 
 `install/` holds the bootstrap scripts (not a Stow package). `references/` is
 research material only — gitignored, never touched by Stow.
+
+**`claude/` is a special case:** `~/.claude` is Claude Code's entire live
+state directory (history, sessions, other tools' hooks) — this repo only
+tracks the statusline script out of it, not the rest. `install-dotfiles.sh`
+stows it with `--no-folding` specifically, which keeps `~/.claude` itself a
+real directory with just `statusline-command.sh` symlinked in, instead of
+stow's default behavior of folding the whole directory into one symlink
+(which would point *all* of Claude Code's live state at this git repo).
+`~/.claude/settings.json` itself is **not** stowed — it's heavily
+auto-managed by other installed apps (writes absolute paths for their own
+hooks) — so after stowing, point its `statusLine.command` at
+`bash $HOME/.claude/statusline-command.sh` (not a hardcoded `/Users/<old
+username>/...` path copied from another machine).
 
 ## Bootstrapping a new Mac
 
