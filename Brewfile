@@ -26,6 +26,7 @@ brew "diff-so-fancy"
 # ---------------------------------------------------------------------------
 # Everything else that was a top-level (leaf) formula on the old machine
 # ---------------------------------------------------------------------------
+brew "btop"
 brew "c2048"
 brew "container"
 brew "duck"
@@ -91,7 +92,7 @@ cask "charles"
 cask "claude"
 cask "cyberduck"
 cask "dbeaver-community"
-cask "docker"
+cask "docker-desktop"
 cask "figma"
 cask "google-chrome"
 cask "intellij-idea"
@@ -110,8 +111,8 @@ cask "utm"
 cask "visual-studio-code"
 cask "warp"
 cask "winbox"
-cask "wireshark"
-cask "zen-browser"
+cask "wireshark-app"
+cask "zen"
 cask "zoom"
 
 # ---------------------------------------------------------------------------
