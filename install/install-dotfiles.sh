@@ -13,7 +13,8 @@ PACKAGES=(zsh git tmux ghostty kitty nvim nvim_LazyVim yazi herdr claude)
 
 for pkg in "${PACKAGES[@]}"; do
   echo "Stowing ${pkg}..."
-  if [[ "$pkg" == "claude" ]]; then
+  case "$pkg" in
+  claude)
     # ~/.claude is Claude Code's whole live state directory (history,
     # sessions, auth-adjacent files, other tools' hooks) — this repo only
     # tracks statusline-command.sh out of it. --no-folding keeps ~/.claude
@@ -22,9 +23,20 @@ for pkg in "${PACKAGES[@]}"; do
     # symlink (which would point ALL of Claude Code's live state at this
     # git repo).
     stow --dir="$REPO_DIR" --restow --target="$HOME" --no-folding "$pkg"
-  else
+    ;;
+  zsh | herdr)
+    # Same folding hazard as claude above: zsh's plugins.zsh git-clones
+    # into $ZDOTDIR/plugins on first run, and herdr writes its own
+    # .plugins.lock — both are runtime state, not repo content. Folding
+    # would point those live-written paths at this git repo instead of a
+    # real ~/.config/{zsh,herdr} directory. --no-folding keeps only the
+    # tracked files symlinked.
+    stow --dir="$REPO_DIR" --restow --target="$HOME" --no-folding "$pkg"
+    ;;
+  *)
     stow --dir="$REPO_DIR" --restow --target="$HOME" "$pkg"
-  fi
+    ;;
+  esac
 done
 
 echo "All packages stowed."
