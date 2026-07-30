@@ -24,6 +24,12 @@ brew "ruby-build"
 brew "diff-so-fancy"
 
 # ---------------------------------------------------------------------------
+# CLI tools required by the nvim config (see nvim/.config/nvim/)
+# ---------------------------------------------------------------------------
+brew "tree-sitter-cli" # nvim-treesitter (main branch) shells out to `tree-sitter build`
+brew "go"              # mason.nvim installs gopls via `go install`
+
+# ---------------------------------------------------------------------------
 # Everything else that was a top-level (leaf) formula on the old machine
 # ---------------------------------------------------------------------------
 brew "btop"

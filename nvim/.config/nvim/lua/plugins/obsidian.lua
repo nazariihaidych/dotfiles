@@ -20,7 +20,7 @@ return {
         workspaces = {
             {
                 name = "mainVault",
-                path = "/Users/nazarii-ff/Library/Mobile Documents/iCloud~md~obsidian/Documents/Main Vault",
+                path = vim.fn.expand("~/Library/Mobile Documents/iCloud~md~obsidian/Documents/Main Vault"),
             },
         },
         -- Suppress deprecation warning. It is now "footer"
