@@ -45,6 +45,9 @@ alias diff='diff --color=auto'
 # Human-readable disk usage (shows GB/MB instead of raw bytes)
 alias df='df -h'
 
+# Clear the terminal screen
+alias clr='clear'
+
 # =========================================================
 # Navigation
 # =========================================================
@@ -61,6 +64,9 @@ alias -- -='cd -'
 # Install: brew install neovim
 alias vim='nvim'
 
+# Launch Claude Code
+alias cc='claude'
+
 # =========================================================
 # Git
 # =========================================================
@@ -69,7 +75,7 @@ alias vim='nvim'
 alias gs="git status --short"
 
 # Show unstaged changes (what you haven't added yet)
-alias dg="git diff"
+alias gd="git diff"
 
 # Stage files — use: ga . or ga <file>
 alias ga="git add"
@@ -94,6 +100,12 @@ alias gi="git init"
 
 # Clone a repo: gcl <url>
 alias gcl="git clone"
+
+# Switch branches
+alias gch="git checkout"
+
+# Create and switch to a new branch: gchb <name>
+alias gchb="git checkout -b"
 
 # Pretty git log (verbose, uses less pager). -F: quit if fits on screen; -X: no clear on exit.
 alias glog='PAGER="less -F -X" git log'
