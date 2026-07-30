@@ -32,7 +32,10 @@ export VISUAL="nvim"   # GUI-capable editor hint (same value is fine)
 # Use bat (syntax-highlighted cat) as the man-page renderer.
 # Falls back to standard less if bat is not installed.
 if command -v bat >/dev/null 2>&1; then
-  export MANPAGER="bat -l man -p"  # -l man: treat as man page, -p: plain (no decorations)
+  # col -bx strips groff's backspace-overstrike bold/underline sequences before
+  # bat sees them; without it bat's man-page highlighter misparses overstruck
+  # runs (e.g. the "--" in --version/--help) into garbled glyphs.
+  export MANPAGER="sh -c 'col -bx | bat -l man -p'"
 fi
 
 # ---------- GPG ----------
