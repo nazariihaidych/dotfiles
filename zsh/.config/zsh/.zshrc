@@ -10,6 +10,10 @@
 # Using XDG_STATE_HOME keeps it out of $HOME.
 HISTFILE="$XDG_STATE_HOME/zsh/history"
 
+# zsh won't create missing parent directories for HISTFILE — without this
+# it silently never persists history at all.
+[[ -d "$XDG_STATE_HOME/zsh" ]] || mkdir -p "$XDG_STATE_HOME/zsh"
+
 # How many entries to keep in memory during the session.
 HISTSIZE=100000
 
