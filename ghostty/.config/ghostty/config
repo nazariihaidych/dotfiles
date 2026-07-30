@@ -66,6 +66,9 @@ shell-integration = none
 cursor-style = block
 cursor-style-blink = true
 
+# Send Option as Alt/Meta (needed for fzf's Alt+C, Alt-based readline binds, etc.)
+macos-option-as-alt = true
+
 # Eventhough not the macos default quit after last window was closed
 quit-after-last-window-closed = true
 
