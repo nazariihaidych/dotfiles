@@ -9,7 +9,7 @@ if ! command -v stow &>/dev/null; then
   exit 1
 fi
 
-PACKAGES=(zsh git tmux ghostty kitty nvim nvim_LazyVim yazi herdr claude)
+PACKAGES=(zsh git tmux ghostty kitty nvim nvim_LazyVim yazi herdr claude btop lazydocker lazygit)
 
 for pkg in "${PACKAGES[@]}"; do
   echo "Stowing ${pkg}..."
