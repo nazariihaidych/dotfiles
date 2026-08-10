@@ -16,7 +16,7 @@ alias ll='eza -lh --icons --git'
 alias la='eza -lah --icons --git'
 
 # Recursive tree view of the current directory
-alias tree='eza --tree --icons'
+alias tree='eza --tree --icons=auto'
 
 # Reuse zsh's built-in ls completion rules for eza.
 # Without this, eza gets no filename completion.
