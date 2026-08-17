@@ -16,7 +16,7 @@ add_newline = false
 # Defines the order and content of the prompt line.
 # Each $module_name is replaced by the module's output (or empty string).
 # Trailing space after $php separates the modules from the $character symbol.
-format = "$directory$os$git_branch$git_status$nodejs$rust$golang$java$php $character"
+format = "$directory$os$git_branch$git_commit$git_status$nodejs$rust$golang$java$php $character"
 
 # =========================================================
 # OS module  — shows an icon for the current OS
@@ -54,6 +54,18 @@ symbol = ""   # nf-dev-git_branch icon
 format = "[$symbol $branch](purple) "
 
 # =========================================================
+# Git commit module
+# =========================================================
+# Only shown in a detached HEAD (only_detached = true). When that detached
+# HEAD points at a tag, tag_disabled = false appends the tag name after the
+# short commit hash.
+[git_commit]
+only_detached = true            # hide when on a normal branch
+tag_disabled  = false           # show the tag when detached on one
+tag_symbol    = " 󰓹 "           # nf-md-tag icon before the tag name
+format        = "[\\($hash$tag\\)](purple) "
+
+# =========================================================
 # Git status module
 # =========================================================
 [git_status]
@@ -84,7 +96,7 @@ symbol = ""   # nf-dev-rust
 format = "[$symbol $version](red) "
 
 [golang]
-symbol = ""   # nf-dev-go
+symbol = "󰟓"   # nf-md-language_go
 format = "[$symbol $version](cyan) "
 
 [java]
