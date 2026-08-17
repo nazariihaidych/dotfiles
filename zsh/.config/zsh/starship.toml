@@ -16,7 +16,7 @@ add_newline = false
 # Defines the order and content of the prompt line.
 # Each $module_name is replaced by the module's output (or empty string).
 # Trailing space after $php separates the modules from the $character symbol.
-format = "$directory$os$git_branch$git_status$nodejs$rust$golang$php $character"
+format = "$directory$os$git_branch$git_status$nodejs$rust$golang$java$php $character"
 
 # =========================================================
 # OS module  — shows an icon for the current OS
@@ -50,7 +50,7 @@ truncate_to_repo = true
 # Git branch module
 # =========================================================
 [git_branch]
-symbol = ""   # nf-dev-git_branch icon
+symbol = ""   # nf-dev-git_branch icon
 format = "[$symbol $branch](purple) "
 
 # =========================================================
@@ -76,19 +76,23 @@ conflicted = "[⚡$count ](red)"    # merge conflicts
 # =========================================================
 
 [nodejs]
-symbol = ""   # nf-dev-nodejs_small
+symbol = ""   # nf-dev-nodejs_small
 format = "[$symbol $version](green) "
 
 [rust]
-symbol = ""   # nf-dev-rust
+symbol = ""   # nf-dev-rust
 format = "[$symbol $version](red) "
 
 [golang]
-symbol = ""   # nf-dev-go
+symbol = ""   # nf-dev-go
 format = "[$symbol $version](cyan) "
 
+[java]
+symbol = ""   # nf-dev-java
+format = "[$symbol $version](red) "
+
 [php]
-symbol = ""   # nf-dev-php
+symbol = ""   # nf-dev-php
 format = "[$symbol $version](purple) "
 
 # =========================================================
