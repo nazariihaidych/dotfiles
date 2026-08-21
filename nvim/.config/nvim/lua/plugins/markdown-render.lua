@@ -14,7 +14,7 @@ return {
             checked = { icon = "󰱒 " }, -- [x]
             custom = {
                 -- key names are arbitrary; `raw` is what you type in the note.
-                cancelled = { raw = "[-]", rendered = "󰜺 ", highlight = "RenderMarkdownError" }, -- cancelled (nf-md-cancel)
+                todo = { raw = "[-]", rendered = "󰜺 ", highlight = "RenderMarkdownError" }, -- cancelled; overrides the built-in `todo` [-] clock (nf-md-cancel)
                 important = { raw = "[!]", rendered = "󰀧 ", highlight = "RenderMarkdownWarn" }, -- important (nf-md-alert_box)
                 question = { raw = "[?]", rendered = "󰋗 ", highlight = "RenderMarkdownHint" }, -- question (nf-md-help_circle)
                 info = { raw = "[i]", rendered = "󰋼 ", highlight = "RenderMarkdownInfo" }, -- pending info (nf-md-information)
