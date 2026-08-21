@@ -8,6 +8,22 @@ return {
     opts = {
         render_modes = { "n", "c", "t" },
         latex = { enabled = false },
+        checkbox = {
+            enabled = true,
+            unchecked = { icon = "󰄱 " }, -- [ ]
+            checked = { icon = "󰱒 " }, -- [x]
+            custom = {
+                -- key names are arbitrary; `raw` is what you type in the note.
+                cancelled = { raw = "[-]", rendered = "󰜺 ", highlight = "RenderMarkdownError" }, -- cancelled (nf-md-cancel)
+                important = { raw = "[!]", rendered = "󰀧 ", highlight = "RenderMarkdownWarn" }, -- important (nf-md-alert_box)
+                question = { raw = "[?]", rendered = "󰋗 ", highlight = "RenderMarkdownHint" }, -- question (nf-md-help_circle)
+                info = { raw = "[i]", rendered = "󰋼 ", highlight = "RenderMarkdownInfo" }, -- pending info (nf-md-information)
+                escalated = { raw = "[u]", rendered = "󰁞 ", highlight = "RenderMarkdownWarn" }, -- escalated to bank (nf-md-arrow_up_bold)
+                in_progress = { raw = "[/]", rendered = "󰔟 ", highlight = "RenderMarkdownTodo" }, -- in progress (nf-md-timer_sand)
+                blocked = { raw = "[b]", rendered = "󰚌 ", highlight = "RenderMarkdownError" }, -- blocked (nf-md-block_helper)
+                highest_priority = { raw = "[f]", rendered = "󰈸 ", highlight = "RenderMarkdownError" }, -- highest priority (nf-md-fire)
+            },
+        },
         pipe_table = {
             preset = "round",
             alignment_indicator = "┅",
