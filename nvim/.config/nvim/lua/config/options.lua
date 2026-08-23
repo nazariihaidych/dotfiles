@@ -11,6 +11,9 @@ vim.opt.autoindent = true -- Keep identation from previous line
 -- Enable break indent
 vim.opt.breakindent = true
 
+-- Soft-wrap long lines at word boundaries instead of mid-word
+vim.opt.linebreak = true
+
 -- Always show relative line numbers
 vim.opt.number = true
 vim.opt.relativenumber = true
