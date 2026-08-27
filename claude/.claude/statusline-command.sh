@@ -14,7 +14,8 @@ GRAY=$'\033[90m'
 # Icons as UTF-8 byte sequences (avoids file encoding issues)
 ICO_MODEL=$(printf '\xef\x84\xb5')    # U+F135 nf-fa-rocket
 ICO_CTX=$(printf '\xef\x82\x80')      # U+F080 nf-fa-bar-chart
-ICO_BRANCH=$(printf '\xee\x82\xa0')   # U+E0A0 nf-pl-branch
+ICO_BRANCH=$(printf '\xee\x9c\xa5')   # U+E725 nf-dev-git_branch (matches starship)
+ICO_TAG=$(printf '\xf3\xb0\x93\xb9')  # U+F04F9 nf-md-tag (matches starship tag_symbol)
 ICO_5H=$(printf '\xef\x80\x97')       # U+F017 nf-fa-clock-o
 ICO_7D=$(printf '\xef\x81\xb3')       # U+F073 nf-fa-calendar
 ICO_SESSION=$(printf '\xef\x89\x94')  # U+F254 nf-fa-hourglass-half
@@ -42,12 +43,27 @@ if [ -n "$used" ]; then
   parts+=("${YELLOW}${ICO_CTX} ctx: ${used_int}%${RESET}")
 fi
 
-# 3. Git branch
+# 3. Git branch — or, on a detached HEAD, the short commit (+ tag if any),
+#    mirroring the starship prompt's git_branch / git_commit modules.
 current_dir=$(echo "$input" | jq -r '.workspace.current_dir // empty')
 if [ -n "$current_dir" ]; then
-  git_branch=$(git --git-dir="${current_dir}/.git" --work-tree="${current_dir}" \
-    symbolic-ref --short HEAD 2>/dev/null)
-  [ -n "$git_branch" ] && parts+=("${BLUE}${ICO_BRANCH} ${git_branch}${RESET}")
+  git() { command git --git-dir="${current_dir}/.git" --work-tree="${current_dir}" "$@"; }
+  git_branch=$(git symbolic-ref --short HEAD 2>/dev/null)
+  if [ -n "$git_branch" ]; then
+    parts+=("${BLUE}${ICO_BRANCH} ${git_branch}${RESET}")
+  else
+    # Detached HEAD: show short hash, and the tag name if HEAD is on a tag.
+    git_hash=$(git rev-parse --short HEAD 2>/dev/null)
+    if [ -n "$git_hash" ]; then
+      git_tag=$(git describe --tags --exact-match HEAD 2>/dev/null)
+      if [ -n "$git_tag" ]; then
+        parts+=("${BLUE}${ICO_BRANCH} HEAD (${git_hash} ${ICO_TAG} ${git_tag})${RESET}")
+      else
+        parts+=("${BLUE}${ICO_BRANCH} HEAD (${git_hash})${RESET}")
+      fi
+    fi
+  fi
+  unset -f git
 fi
 
 # 4. 5h rate limit
