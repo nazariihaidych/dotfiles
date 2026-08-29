@@ -6,6 +6,7 @@
 # VPN Client, GlobalProtect) are intentionally excluded — install those via IT.
 
 tap "kopecmaciej/vi-mongo"
+tap "bjarneo/cliamp"
 
 # ---------------------------------------------------------------------------
 # CLI tools required by the zsh config (see zsh/.config/zsh/)
@@ -33,6 +34,7 @@ brew "go"              # mason.nvim installs gopls via `go install`
 # Everything else that was a top-level (leaf) formula on the old machine
 # ---------------------------------------------------------------------------
 brew "btop"
+brew "bjarneo/cliamp/cliamp" # retro terminal music player inspired by Winamp 2.x
 brew "c2048"
 brew "container"
 brew "duck"
