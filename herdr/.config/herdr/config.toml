@@ -9,11 +9,29 @@ focus_agent = "prefix+shift+1..9"
 
 [ui]
 hide_tab_bar_when_single_tab = true
-
 agent_panel_sort = "spaces"
+status_indicators = "symbols"
+show_agent_labels_on_pane_borders = false
 
 [advanced]
 scrollback_limit_bytes = 10485760
 
 [experimental]
 kitty_graphics = true
+
+[ui.toast]
+delivery = "system"
+
+[ui.sidebar.agents]
+row_gap = 0
+rows = [
+  ["state_icon", "workspace", "tab"],
+  ["agent"],
+]
+
+[ui.sidebar.spaces]
+row_gap = 0
+rows = [
+  ["state_icon", "workspace"],
+  ["branch", "git_status"],
+]
