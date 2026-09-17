@@ -10,7 +10,7 @@ focus_agent = "prefix+shift+1..9"
 [ui]
 hide_tab_bar_when_single_tab = true
 agent_panel_sort = "spaces"
-status_indicators = "symbols"
+status_indicators = "dots"
 show_agent_labels_on_pane_borders = false
 
 [advanced]
@@ -20,7 +20,7 @@ scrollback_limit_bytes = 10485760
 kitty_graphics = true
 
 [ui.toast]
-delivery = "system"
+delivery = "herdr"
 
 [ui.sidebar.agents]
 row_gap = 0
