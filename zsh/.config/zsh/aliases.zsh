@@ -66,6 +66,8 @@ alias vim='nvim'
 
 # Launch Claude Code
 alias cc='claude'
+alias ccc='claude --continue'
+alias ccr='claude --resume'
 
 # =========================================================
 # Git
