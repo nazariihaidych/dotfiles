@@ -37,7 +37,10 @@ return {
                     return opts
                 end
 
-                -- Change background for completion and hover popups
+                -- Completion & hover popups.
+                -- When transparent, clear their background so the terminal shows
+                -- through (the "terminal-like" look, same as the which-key window).
+                -- When not transparent, give them a solid bg3 so they stand out.
                 if
                     group == "Pmenu"
                     or group == "PmenuExtra"
@@ -46,7 +49,8 @@ return {
                     or group == "PmenuKind"
                     or group == "NormalFloat"
                 then
-                    opts.bg = colors.bg3
+                    opts.link = nil
+                    opts.bg = gruvbox_material_transparent and "NONE" or colors.bg3
                 end
 
                 -- Change completion selection line

@@ -55,6 +55,8 @@ background-opacity = 0.82
 background-blur = 9
 window-decoration = auto
 #macos-titlebar-style = hidden
+macos-window-buttons = hidden
+
 
 window-save-state = always
 macos-titlebar-style=transparent

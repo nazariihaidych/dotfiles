@@ -3,9 +3,22 @@ onboarding = false
 name = "dracula"
 auto_switch = false
 
+[theme.custom]
+# Keep dracula colors but let the terminal's transparency show through the
+# tab bar / panel surfaces (same effect the "terminal" theme has everywhere).
+panel_bg = "reset"
+
 [keys]
 prefix = "ctrl+a"
 focus_agent = "prefix+shift+1..9"
+previous_agent = "prefix+shift+<"
+next_agent = "prefix+shift+>"
+
+[[keys.command]]
+key = "prefix+u"
+type = "plugin_action"
+command = "martinro.next-agent.jump"
+description = "next agent needing attention"
 
 [ui]
 hide_tab_bar_when_single_tab = true

@@ -50,6 +50,18 @@ vim.opt.listchars = { tab = "» ", trail = "·", nbsp = "␣", extends = "→", 
 -- Minimal number of screen lines to keep above and below the cursor.
 vim.opt.scrolloff = 10
 
+-- Default border for all floating windows (LSP hover, signature help,
+-- diagnostics, help popups, Lazy/Mason UIs, etc.). Neovim 0.11+ global option.
+-- "none" | "single" | "double" | "rounded" | "solid" | "shadow"
+vim.opt.winborder = "rounded"
+
+-- Make floating windows & the completion popup a bit transparent.
+-- (The editor splits are already transparent via the theme's `transparent = true`
+--  plus the terminal's background opacity; winblend/pumblend only affect floats.)
+-- Range 0 (opaque) .. 100 (fully transparent); ~10-15 = "a bit".
+-- vim.opt.winblend = 12 -- floating windows (hover, LSP, which-key, etc.)
+-- vim.opt.pumblend = 12 -- popup menu (completion)
+
 -- Highlight text for some time after yanking
 vim.api.nvim_create_autocmd("TextYankPost", {
   group = vim.api.nvim_create_augroup("YankHighlight", { clear = true }),
@@ -58,5 +70,28 @@ vim.api.nvim_create_autocmd("TextYankPost", {
     vim.highlight.on_yank()
   end,
   desc = "Highlight yank",
+})
+
+-- `:help` opens as a split, which can't have a border. Convert the help window
+-- into a centered floating window so it picks up a border (like other floats).
+vim.api.nvim_create_autocmd("FileType", {
+  group = vim.api.nvim_create_augroup("HelpFloat", { clear = true }),
+  pattern = { "help", "man" },
+  callback = function(args)
+    if not vim.bo[args.buf].buflisted then
+      local win = vim.api.nvim_get_current_win()
+      local width = math.min(120, math.floor(vim.o.columns * 0.85))
+      local height = math.floor(vim.o.lines * 0.85)
+      pcall(vim.api.nvim_win_set_config, win, {
+        relative = "editor",
+        width = width,
+        height = height,
+        row = math.floor((vim.o.lines - height) / 2),
+        col = math.floor((vim.o.columns - width) / 2),
+        border = "rounded",
+      })
+    end
+  end,
+  desc = "Open help/man in a bordered floating window",
 })
 
